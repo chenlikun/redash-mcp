@@ -395,7 +395,7 @@ export class RedashClient {
         logger.error(`Request config: ${JSON.stringify({
           url: axiosError.config?.url,
           method: axiosError.config?.method,
-          
+
           data: axiosError.config?.data
         }, null, 2)}`);
 
@@ -444,7 +444,7 @@ export class RedashClient {
         logger.error(`Request config: ${JSON.stringify({
           url: axiosError.config?.url,
           method: axiosError.config?.method,
-          
+
           data: axiosError.config?.data
         }, null, 2)}`);
 
@@ -523,7 +523,7 @@ export class RedashClient {
   }
 
   // Poll for query execution results
-  private async pollQueryResults(jobId: string, timeout = 60000, interval = 1000): Promise<RedashQueryResult> {
+  private async pollQueryResults(jobId: string, timeout = parseInt(process.env.REDASH_POLL_TIMEOUT || '600000'), interval = 1000): Promise<RedashQueryResult> {
     const startTime = Date.now();
 
     while (Date.now() - startTime < timeout) {

@@ -31,6 +31,7 @@ The server requires the following environment variables:
 
 Optional variables:
 - `REDASH_TIMEOUT`: Timeout for API requests in milliseconds (default: 30000)
+- `REDASH_POLL_TIMEOUT`: Timeout for query execution polling in milliseconds (default: 600000, i.e. 10 minutes)
 - `REDASH_MAX_RESULTS`: Maximum number of results to return (default: 1000)
 - `REDASH_EXTRA_HEADERS`: Extra HTTP headers to include with every Redash request. Accepts either a JSON object string or a semicolon/comma-separated list of `key=value` pairs.
 - `REDASH_SOCKS_PROXY`: SOCKS proxy URL for routing requests through a proxy (e.g., `socks5h://localhost:1080`). Use `socks5h://` (with `h`) to delegate DNS resolution to the proxy, which is required for internal hostnames that don't resolve on the local machine.
@@ -98,7 +99,7 @@ Add the following configuration (edit paths as needed):
       "command": "npx",
       "args": [
          "-y",
-         "@suthio/redash-mcp"
+         "@lincoln_chen/redash-mcp"
       ],
       "env": {
         "REDASH_API_KEY": "your-api-key",
@@ -113,7 +114,7 @@ Add the following configuration (edit paths as needed):
 
 ### Query Management
 - `list-queries`: List all available queries in Redash
-- `get-query`: Get details of a specific query 
+- `get-query`: Get details of a specific query
 - `create-query`: Create a new query in Redash
 - `update-query`: Update an existing query in Redash
 - `archive-query`: Archive (soft-delete) a query
@@ -126,7 +127,7 @@ Add the following configuration (edit paths as needed):
 
 ### Dashboard Management
 - `list-dashboards`: List all available dashboards
-- `get-dashboard`: Get dashboard details and visualizations 
+- `get-dashboard`: Get dashboard details and visualizations
 - `get-visualization`: Get details of a specific visualization
 
 ### Visualization Management
